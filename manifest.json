@@ -1,0 +1,17 @@
+{
+    "short_name":"Streerides",
+    "name":"Streerides",
+    "icons":[ {
+        "src": "/assets/img/streerides-logo.jpeg?h=7dbabc5f8bf3e2bc0e30c001f0756e34", "type": "image/jpeg", "sizes": "640x640"
+    }
+    ,
+    {
+        "src": "/assets/img/streerides-logo.jpeg?h=7dbabc5f8bf3e2bc0e30c001f0756e34", "type": "image/jpeg", "sizes": "640x640"
+    }
+    ],
+    "start_url":"/index.html",
+    "background_color":"White",
+    "theme_color":"rgb(23,216,242)",
+    "display":"fullscreen",
+    "orientation":"portrait"
+}

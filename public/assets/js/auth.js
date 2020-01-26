@@ -1,3 +1,4 @@
+/*
 const logoutui = document.querySelectorAll('.navbar-logout');
 const loginui = document.querySelectorAll('.navbar-login');
 //console.log(logoutui);
@@ -12,7 +13,7 @@ auth.onAuthStateChanged(user => {
             link.style.display = "block";
         })
         
-        //console.log(user);
+        //console.log(user);z
         // User is signed in.
     } else {
         console.log("User is signed out.");
@@ -28,7 +29,7 @@ auth.onAuthStateChanged(user => {
         // User is signed out.
     }
 });
-
+*/
 
 
 
@@ -48,7 +49,7 @@ if(signupForm !== null){
         auth.createUserWithEmailAndPassword(email, password)
         .then(cred => {
             console.log(cred.user);
-            window.location = "index.html";
+            window.location = "book.html";
         })
         .catch(error => {
             console.log(error);
@@ -57,7 +58,7 @@ if(signupForm !== null){
         
     })
 }
-
+/*
 //Login
 const loginForm = document.querySelector('#login-form')
 if(loginForm !== null){
@@ -84,6 +85,7 @@ if(loginForm !== null){
     
     
 }
+*/
 //console.log("we are here toopree");
 const logout = document.querySelector('#logout');
 //console.log("we are here too end");

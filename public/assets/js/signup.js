@@ -1,39 +1,34 @@
-console.log("Welcome to signin")
+console.log("welcome to signup")
 
-const loginForm = document.querySelector('#login-form')
-if(loginForm !== null){
-    
-    
-    
-    loginForm.addEventListener('submit', (e)=>{
-        e.preventDefault();
+const signupForm = document.querySelector('#signup-form')
+if(signupForm !== null){
+    signupForm.addEventListener('submit',e => {
+        e.preventDefault()
         
-        const email = loginForm['email'].value;
-        const password = loginForm['password'].value;
-        //console.log(email,password);
-        auth.signInWithEmailAndPassword(email, password)
-        .then(cred=> {
+        const name = signupForm['name'].value;
+        const email = signupForm['email'].value;
+        const password = signupForm['password'].value;
+        console.log(name,email,password);
+        // auth.createUserwithEmailAndPassword(email,password)
+        
+        auth.createUserWithEmailAndPassword(email, password)
+        .then(cred => {
             console.log(cred.user);
-            window.location = "index.html";
-            
+            window.location = "book.html";
         })
         .catch(error => {
             console.log(error);
         })
         
-    }   )
-    
-    
+        
+    })
 }
-
-
 
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
  
- 
-  var uiConfigin = {
+  var uiConfigup = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl) {
         // User successfully signed in.
@@ -52,7 +47,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
     signInSuccessUrl: 'book.html',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.PhoneAuthProvider.PROVIDER_ID
     ],
@@ -61,8 +55,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // Privacy policy url.
     privacyPolicyUrl: '<your-privacy-policy-url>'
   };
-  // The start method will wait until the DOM is loaded.
 
-
-  ui.start('#firebaseui-signin-container', uiConfigin);
+  ui.start('#firebaseui-auth-container', uiConfigup);
 

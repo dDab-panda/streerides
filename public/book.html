@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Contact Us - Brand</title>
+  <title>Slot Booking</title>
   <meta name="theme-color" content="rgb(23,216,242)">
   <link rel="icon" type="image/jpeg" sizes="640x640" href="assets/img/streerides-logo.jpeg">
   <link rel="icon" type="image/jpeg" sizes="640x640" href="assets/img/streerides-logo.jpeg">
@@ -92,30 +92,29 @@
             <select class="form-control" id="package-select-option">
               
               <option selected disabled>Select Package</option>
-              <option value="day">WeekDay Package</option>
-              <option value="end">Weekend Package</option>
+              <option value="weekday">WeekDay Package</option>
+              <option value="weekend">Weekend Package</option>
               
             </select>
           </div>
-          
-          
+ 
           <div class="form-group ">
             <label style="display: none;" id="date-label">Select Dates</label>
             <div class="input-group mb-4" id="weekday-select-option" style="display: none;">
               <div class="input-group-prepend">
                 <span class="input-group-text">WeekDays</span>
               </div>
-              <input type='text' id='weeklyDatePicker' placeholder="Select Week" />
+              <input type='text' id="weekday-picker" placeholder="Select Week" />
             </div>
             <div class="input-group mb-4" id="weekend-select-option"  style="display: none;">
               <div class="input-group-prepend">
                 <span class="input-group-text">WeekEnds</span>
               </div>
-              <input type='text' id='weeklyDatePicker2' placeholder="Select Two Weekends" />
+              <input type='text' id="weekend-picker" placeholder="Select Two Weekends" />
             </div>
           </div>
           <div class="form-group"><label>Location</label>
-            <select class="form-control">
+            <select class="form-control" id="location-value">
               <optgroup label="Select Location">
                 <option value="12">Location1</option>
                 <option value="13">Location2</option>
@@ -124,15 +123,15 @@
             </select>
           </div>
           <div class="form-group"><label>Time Slot</label>
-            <select class="form-control">
-              <optgroup label="Select Location">
+            <select class="form-control"  id="time-value">
+              <optgroup label="Select Time Slot">
                 <option value="12">This is item 1</option>
                 <option value="13">This is item 2</option>
                 <option value="14">This is item 3</option>
               </optgroup>
             </select>
           </div>
-          <div class="form-group"><label>Comments</label><textarea class="form-control"></textarea></div>
+          <div class="form-group"><label>Comments</label><textarea class="form-control" id="comment-value"></textarea></div>
           <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Book</button></div>
         </form>
       </div>
@@ -181,6 +180,36 @@
     <p>© 2020 Streerides</p>
   </div>
 </footer>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
+
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB9rN67zGWN-D8GOIacASuXB_wHSlcga9Y",
+    authDomain: "streeridesauth.firebaseapp.com",
+    databaseURL: "https://streeridesauth.firebaseio.com",
+    projectId: "streeridesauth",
+    storageBucket: "streeridesauth.appspot.com",
+    messagingSenderId: "1080267560513",
+    appId: "1:1080267560513:web:afa9814263afb6b44c58c0",
+    measurementId: "G-WDZ19YEVET"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+
+</script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
@@ -190,6 +219,10 @@
 <script src="https://cdn.jsdelivr.net/npm/lightpick@1.3.4/lightpick.min.js"></script>
 <script src="assets/js/smoothproducts.min.js"></script>
 <script src="assets/js/theme.js"></script>
+
+<script src="assets/js/displaylogout.js"></script>
+<script src="assets/js/logout.js"></script>
+<script src="assets/js/bookrequest.js"></script>
 <script type="text/javascript">
   
   $(document).ready(function(){
@@ -197,7 +230,7 @@
         week: { dow: 1 } // Monday is the first day of the week
     });
     //Initialize the datePicker(I have taken format as mm-dd-yyyy, you can     //have your owh)
-    $("#weeklyDatePicker").datetimepicker({
+    $("#weekday-picker").datetimepicker({
       format: 'DD-MM-YYYY',
       daysOfWeekDisabled: [0],
       minDate:new Date()
@@ -205,11 +238,11 @@
     });
     
     //Get the value of Start and End of Week
-    $('#weeklyDatePicker').on('dp.change', function (e) {
-      var value = $("#weeklyDatePicker").val();
+    $('#weekday-picker').on('dp.change', function (e) {
+      var value = $("#weekday-picker").val();
       var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
       var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
-      $("#weeklyDatePicker").val(firstDate + " - " + lastDate);
+      $("#weekday-picker").val(firstDate + " - " + lastDate);
     });
   });
 </script>
@@ -220,7 +253,7 @@
         week: { dow: 1 } // Monday is the first day of the week
     });
     //Initialize the datePicker(I have taken format as mm-dd-yyyy, you can     //have your owh)
-    $("#weeklyDatePicker2").datetimepicker({
+    $("#weekend-picker").datetimepicker({
       format: 'DD-MM-YYYY',
       daysOfWeekDisabled: [1,2,3,4,5],
       minDate:new Date(),
@@ -229,35 +262,16 @@
     });
     
     //Get the value of Start and End of Week
-    $('#weeklyDatePicker2').on('dp.change', function (e) {
-      var value = $("#weeklyDatePicker2").val();
+    $('#weekend-picker').on('dp.change', function (e) {
+      var value = $("#weekend-picker").val();
       console.log(moment(value, "DD-MM-YYYY"));
       var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
       var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
-      $("#weeklyDatePicker2").val(firstDate + " - " + lastDate);
+      $("#weekend-picker").val(firstDate + " - " + lastDate);
     });
   });
 </script>
-<script type="text/javascript">
-  $(function() {
-    
-    $('input[name="datefilter2"]').daterangepicker({
-      autoUpdateInput: false,
-      locale: {
-        cancelLabel: 'Clear'
-      }
-    });
-    
-    $('input[name="datefilter2"]').on('apply.daterangepicker', function(ev, picker) {
-      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-    });
-    
-    $('input[name="datefilter2"]').on('cancel.daterangepicker', function(ev, picker) {
-      $(this).val('');
-    });
-    
-  });
-</script>
+
 </script>
 <script type="text/javascript">
   const packselect =  document.querySelector("#package-select-option");
@@ -265,7 +279,7 @@
   
   packselect.addEventListener("change",()=>{
     const packvalue = packselect['value'];
-    if(packvalue === "day"){
+    if(packvalue === "weekday"){
       document.querySelector("#date-label").style.display="";
       document.querySelector("#weekday-select-option").style.display="";
       document.querySelector("#weekend-select-option").style.display="none";

@@ -17,28 +17,52 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightpick@1.3.4/css/lightpick.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
   <link rel="stylesheet" href="assets/css/smoothproducts.css">
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="#">Streerides</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                  <li class="nav-item" role="presentation" ><a class="nav-link active" href="index.html">Home</a></li>
-                  <li class="nav-item" role="presentation" ><a class="nav-link" href="gallery.html">Gallery</a></li>
-                  <li class="nav-item navbar-login" role="presentation" ><a class="nav-link" href="book.html">Book</a></li>                    
-                  <li class="nav-item" role="presentation" ><a class="nav-link" href="blog-post-list.html">Blog</a></li>
-                  <li class="nav-item" role="presentation" ><a class="nav-link" href="about-us.html">About Us</a></li>
-                  <li class="nav-item navbar-logout" role="presentation"><a class="nav-link" href="login.html" id ="login">Login</a></li>
-                  <li class="nav-item navbar-logout" role="presentation"><a class="nav-link" href="registration.html" id ="login">Register</a></li>
-                  <li class="nav-item navbar-login" role="presentation" ><a class="nav-link" id ="logout" href=" ">Logout</a></li>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="#">Streerides</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse"
+      id="navcol-1">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item" role="presentation" ><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item" role="presentation" ><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item navbar-login" role="presentation" ><a class="nav-link" href="book.html">Book</a></li>                    
+        <li class="nav-item" role="presentation" ><a class="nav-link" href="blog-post-list.html">Blog</a></li>
+        <li class="nav-item" role="presentation" ><a class="nav-link" href="about-us.html">About Us</a></li>
+        <li class="nav-item navbar-logout" role="presentation"><a class="nav-link" href="login.html" id ="login">Login</a></li>
+        <li class="nav-item navbar-logout" role="presentation"><a class="nav-link" href="registration.html" id ="login">Register</a></li>
+        <li class="nav-item navbar-login" role="presentation" ><a class="nav-link" id ="logout" href=" ">Logout</a></li>
+      </ul>	                  
+    </div>	                 
+  </div>	
+</nav>	
+<main class="page contact-us-page">	
+  <section class="clean-block clean-form dark">	
+    <div class="container">	
+      <div class="block-heading">	
+        <h2 class="text-info">Slot Booking</h2>	
+        <p>Book your slot</p>	
+        <div class="row"><div class="container">	
+          <div class="card-deck mb-3 text-center">	
+            <div class="col-mb-2 "> </div>	
+            <div class="card mb-4 lg-4 box-shadow">	
+              <div class="card-header">	
+                <h4 class="my-0 font-weight-normal">Weekday Plan</h4>	
+              </div>	
+              <div class="card-body">	
+                <h1 class="card-title pricing-card-title">Rs 3000 <small class="text-muted">/ slot</small></h1>	
+                <ul class="list-unstyled mt-3 mb-4">	
+                  <li>10 users included</li>	
+                  <li>2 GB of storage</li>	
+                  <li>Email support</li>	
+                  <li>Help center access</li>
                 </ul>
                 <button type="button" class="btn btn-lg btn-block btn-primary">Choose WeekDay Package</button>
               </div>
@@ -63,58 +87,58 @@
         </div></div>
       </div>
       <div class="container">
-      <form id="book-form">
-        <div class="form-group"><label>Package</label>
-          <select class="form-control" id="package-select-option">
-           
+        <form id="book-form">
+          <div class="form-group"><label>Package</label>
+            <select class="form-control" id="package-select-option">
+              
               <option selected disabled>Select Package</option>
               <option value="day">WeekDay Package</option>
               <option value="end">Weekend Package</option>
-      
-          </select>
-        </div>
-        
-
-        <div class="form-group ">
-          <label style="display: none;" id="date-label">Select Dates</label>
-        <div class="input-group mb-4" id="weekday-select-option" style="display: none;">
-          <div class="input-group-prepend">
-            <span class="input-group-text">WeekDays</span>
+              
+            </select>
           </div>
-          <input type='text' id='weeklyDatePicker' placeholder="Select Week" />
-        </div>
-        <div class="input-group mb-4" id="weekend-select-option"  style="display: none;">
-          <div class="input-group-prepend">
-            <span class="input-group-text">WeekEnds</span>
+          
+          
+          <div class="form-group ">
+            <label style="display: none;" id="date-label">Select Dates</label>
+            <div class="input-group mb-4" id="weekday-select-option" style="display: none;">
+              <div class="input-group-prepend">
+                <span class="input-group-text">WeekDays</span>
+              </div>
+              <input type='text' id='weeklyDatePicker' placeholder="Select Week" />
+            </div>
+            <div class="input-group mb-4" id="weekend-select-option"  style="display: none;">
+              <div class="input-group-prepend">
+                <span class="input-group-text">WeekEnds</span>
+              </div>
+              <input type="text" name="datefilter2" value="" />
+            </div>
           </div>
-          <input type="text" name="datefilter2" value="" />
-        </div>
-        </div>
-        <div class="form-group"><label>Location</label>
-          <select class="form-control">
-            <optgroup label="Select Location">
-              <option value="12">Location1</option>
-              <option value="13">Location2</option>
-              <option value="14">Location3</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="form-group"><label>Time Slot</label>
-          <select class="form-control">
-            <optgroup label="Select Location">
-              <option value="12">This is item 1</option>
-              <option value="13">This is item 2</option>
-              <option value="14">This is item 3</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="form-group"><label>Comments</label><textarea class="form-control"></textarea></div>
-        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Book</button></div>
-      </form>
+          <div class="form-group"><label>Location</label>
+            <select class="form-control">
+              <optgroup label="Select Location">
+                <option value="12">Location1</option>
+                <option value="13">Location2</option>
+                <option value="14">Location3</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group"><label>Time Slot</label>
+            <select class="form-control">
+              <optgroup label="Select Location">
+                <option value="12">This is item 1</option>
+                <option value="13">This is item 2</option>
+                <option value="14">This is item 3</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group"><label>Comments</label><textarea class="form-control"></textarea></div>
+          <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Book</button></div>
+        </form>
+      </div>
     </div>
-    </div>
-    </div>
-  </section>
+  </div>
+</section>
 </main>
 <footer class="page-footer dark">
   <div class="container">
@@ -168,62 +192,62 @@
 <script src="assets/js/Date-Range-Picker.js"></script>
 <script src="assets/js/theme.js"></script>
 <script type="text/javascript">git 
+  
+  $(document).ready(function(){
     
-$(document).ready(function(){
-
-//Initialize the datePicker(I have taken format as mm-dd-yyyy, you can     //have your owh)
-$("#weeklyDatePicker").datetimepicker({
-    format: 'DD-MM-YYYY'
-});
-
- //Get the value of Start and End of Week
-$('#weeklyDatePicker').on('dp.change', function (e) {
-    var value = $("#weeklyDatePicker").val();
-    var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
-    var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
-    $("#weeklyDatePicker").val(firstDate + " - " + lastDate);
-});
-});
+    //Initialize the datePicker(I have taken format as mm-dd-yyyy, you can     //have your owh)
+    $("#weeklyDatePicker").datetimepicker({
+      format: 'DD-MM-YYYY'
+    });
+    
+    //Get the value of Start and End of Week
+    $('#weeklyDatePicker').on('dp.change', function (e) {
+      var value = $("#weeklyDatePicker").val();
+      var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
+      var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
+      $("#weeklyDatePicker").val(firstDate + " - " + lastDate);
+    });
+  });
 </script>
 <script type="text/javascript">
-$(function() {
-
-  $('input[name="datefilter2"]').daterangepicker({
+  $(function() {
+    
+    $('input[name="datefilter2"]').daterangepicker({
       autoUpdateInput: false,
       locale: {
-          cancelLabel: 'Clear'
+        cancelLabel: 'Clear'
       }
-  });
-
-  $('input[name="datefilter2"]').on('apply.daterangepicker', function(ev, picker) {
+    });
+    
+    $('input[name="datefilter2"]').on('apply.daterangepicker', function(ev, picker) {
       $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-  });
-
-  $('input[name="datefilter2"]').on('cancel.daterangepicker', function(ev, picker) {
+    });
+    
+    $('input[name="datefilter2"]').on('cancel.daterangepicker', function(ev, picker) {
       $(this).val('');
+    });
+    
   });
-
-});
 </script>
 </script>
 <script type="text/javascript">
- const packselect =  document.querySelector("#package-select-option");
-
-
-packselect.addEventListener("change",()=>{
-  const packvalue = packselect['value'];
-  if(packvalue === "day"){
-    document.querySelector("#date-label").style.display="";
-    document.querySelector("#weekday-select-option").style.display="";
-    document.querySelector("#weekend-select-option").style.display="none";
-  }
-  else{
-    document.querySelector("#date-label").style.display="";
-    document.querySelector("#weekday-select-option").style.display="none";
-    document.querySelector("#weekend-select-option").style.display="";
-  }
-})
-
+  const packselect =  document.querySelector("#package-select-option");
+  
+  
+  packselect.addEventListener("change",()=>{
+    const packvalue = packselect['value'];
+    if(packvalue === "day"){
+      document.querySelector("#date-label").style.display="";
+      document.querySelector("#weekday-select-option").style.display="";
+      document.querySelector("#weekend-select-option").style.display="none";
+    }
+    else{
+      document.querySelector("#date-label").style.display="";
+      document.querySelector("#weekday-select-option").style.display="none";
+      document.querySelector("#weekend-select-option").style.display="";
+    }
+  })
+  
 </script>
 
 </body>

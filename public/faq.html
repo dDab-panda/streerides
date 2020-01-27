@@ -22,12 +22,14 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post-list.html">Blog</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Register</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item navbar-login" role="presentation" ><a class="nav-link" href="book.html">Book</a></li>                    
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="blog-post-list.html">Blog</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item navbar-logout" role="presentation"><a class="nav-link" href="login.html" id ="login">Login</a></li>
+                    <li class="nav-item navbar-logout" role="presentation"><a class="nav-link" href="registration.html" id ="login">Register</a></li>
+                    <li class="nav-item navbar-login" role="presentation" ><a class="nav-link" id ="logout" href=" ">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -105,11 +107,43 @@
             <p>© 2020 Streerides</p>
         </div>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
+    
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyB9rN67zGWN-D8GOIacASuXB_wHSlcga9Y",
+        authDomain: "streeridesauth.firebaseapp.com",
+        databaseURL: "https://streeridesauth.firebaseio.com",
+        projectId: "streeridesauth",
+        storageBucket: "streeridesauth.appspot.com",
+        messagingSenderId: "1080267560513",
+        appId: "1:1080267560513:web:afa9814263afb6b44c58c0",
+        measurementId: "G-WDZ19YEVET"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    
+    
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    
+    
+    </script>
+     <script src="assets/js/displaylogout.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/smoothproducts.min.js?h=975b2635c9a06eae9f47d6cae8158a12"></script>
     <script src="assets/js/theme.js?h=417b03f5f0a4f9f27f8c248f532eb5af"></script>
+    <script src="assets/js/logout.js"></script>
 </body>
 
 </html>

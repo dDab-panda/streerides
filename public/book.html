@@ -20,9 +20,9 @@
   
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 
 <body>
@@ -111,7 +111,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">WeekEnds</span>
               </div>
-              <input type="text" name="datefilter2" value="" />
+              <input type='text' id='weeklyDatePicker2' placeholder="Select Two Weekends" />
             </div>
           </div>
           <div class="form-group"><label>Location</label>
@@ -189,15 +189,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightpick@1.3.4/lightpick.min.js"></script>
 <script src="assets/js/smoothproducts.min.js"></script>
-<script src="assets/js/Date-Range-Picker.js"></script>
 <script src="assets/js/theme.js"></script>
-<script type="text/javascript">git 
+<script type="text/javascript">
   
   $(document).ready(function(){
-    
+    moment.locale('en', {
+        week: { dow: 1 } // Monday is the first day of the week
+    });
     //Initialize the datePicker(I have taken format as mm-dd-yyyy, you can     //have your owh)
     $("#weeklyDatePicker").datetimepicker({
-      format: 'DD-MM-YYYY'
+      format: 'DD-MM-YYYY',
+      daysOfWeekDisabled: [0],
+      minDate:new Date()
+
     });
     
     //Get the value of Start and End of Week
@@ -206,6 +210,31 @@
       var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
       var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
       $("#weeklyDatePicker").val(firstDate + " - " + lastDate);
+    });
+  });
+</script>
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    moment.locale('en', {
+        week: { dow: 1 } // Monday is the first day of the week
+    });
+    //Initialize the datePicker(I have taken format as mm-dd-yyyy, you can     //have your owh)
+    $("#weeklyDatePicker2").datetimepicker({
+      format: 'DD-MM-YYYY',
+      daysOfWeekDisabled: [1,2,3,4,5],
+      minDate:new Date(),
+      
+
+    });
+    
+    //Get the value of Start and End of Week
+    $('#weeklyDatePicker2').on('dp.change', function (e) {
+      var value = $("#weeklyDatePicker2").val();
+      console.log(moment(value, "DD-MM-YYYY"));
+      var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
+      var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
+      $("#weeklyDatePicker2").val(firstDate + " - " + lastDate);
     });
   });
 </script>

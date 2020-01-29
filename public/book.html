@@ -256,7 +256,7 @@
     $("#weekend-picker").datetimepicker({
       format: 'DD-MM-YYYY',
       daysOfWeekDisabled: [1,2,3,4,5],
-      minDate:new Date(),
+      minDate:new Date()
       
 
     });
@@ -264,9 +264,11 @@
     //Get the value of Start and End of Week
     $('#weekend-picker').on('dp.change', function (e) {
       var value = $("#weekend-picker").val();
+      
+      console.log(value)
       console.log(moment(value, "DD-MM-YYYY"));
-      var firstDate = moment(value, "DD-MM-YYYY").day(1).format("DD-MM-YYYY");
-      var lastDate =  moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
+      var firstDate = moment(value, "DD-MM-YYYY").day(6).format("DD-MM-YYYY");
+      var lastDate =  moment(value, "DD-MM-YYYY").day(0).format("DD-MM-YYYY");
       $("#weekend-picker").val(firstDate + " - " + lastDate);
     });
   });

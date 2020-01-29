@@ -5,7 +5,7 @@ if(signupForm !== null){
     signupForm.addEventListener('submit',e => {
         e.preventDefault()
         
-        const name = signupForm['name'].value;
+        // const name = signupForm['name'].value;
         const email = signupForm['email'].value;
         const password = signupForm['password'].value;
         console.log(name,email,password);
@@ -14,7 +14,7 @@ if(signupForm !== null){
         auth.createUserWithEmailAndPassword(email, password)
         .then(cred => {
             console.log(cred.user);
-            window.location = "book.html";
+            window.location = "details.html";
         })
         .catch(error => {
             console.log(error);
@@ -44,7 +44,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup', 
-    signInSuccessUrl: 'book.html',
+    signInSuccessUrl: 'details.html',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,

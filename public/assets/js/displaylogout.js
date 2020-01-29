@@ -7,6 +7,7 @@ const logoutui = document.querySelectorAll('.navbar-logout');
   auth.onAuthStateChanged(user => {
       if (user) {
           console.log("User is signed in toh there should not be login and register.");
+        //   console.log(user.name)
           logoutui.forEach((link) => {
               link.style.display = "none";
           })

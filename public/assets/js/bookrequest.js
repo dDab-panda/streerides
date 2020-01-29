@@ -1,9 +1,11 @@
 
-console.log("imma here");
-var messagesRef = firebase.database().ref('messages');
+console.log("Welcome to Bookrequest.js");
+var messagesRef = firebase.database().ref('booking-info');
 
 const bookrequest = document.querySelector('#book-form')
-console.log(bookrequest);
+
+
+const docRef=db.doc("booking-info/people");
 
 if(bookrequest !== null){
     bookrequest.addEventListener('submit',e => {
@@ -11,30 +13,38 @@ if(bookrequest !== null){
         
         const package = bookrequest['package-select-option'].value;
         console.log(package);
-        const dates = bookrequest['weekday-picker'].value;
-        const weekends = bookrequest['weekend-picker'].value;
-        console.log(dates,weekends);
-        const package = bookrequest['package-select-option'].value;
-        const package = bookrequest['package-select-option'].value;
-        //const aadhar = bookrequest['aadhar'].value;
-       // const phone = bookrequest['phone'].value;
-    //    console.log(name)
-     //    console.log(aadhar)
-      //    console.log(phone)  
+        var dates=null;
 
-       //saveMessage(name,aadhar,phone);
+        if(package==="weekday"){
+          dates = bookrequest['weekday-picker'].value;
+        }
+        else{
+          dates = bookrequest['weekend-picker'].value;
+        }
+        console.log(dates)
+     
+        const location=bookrequest['location-value'].value;
+        const time=bookrequest['time-value'].value;
+        const comments=bookrequest['comment-value'].value;
+        console.log(location, time, comments)
+    
 
-       //Reset the fields back to original it was.
-       //document.getElementById('user-info').reset();
+      //  saveMessage(package, dates, location, time, comments);
+      docRef.set({
+        package: package,
+        dates: dates,
+        location: location,
+        time: time,
+        comments: comments,
+      }).then(function(){
+        console.log("Status Saved")
+      }).catch(function(error){
+        console.log("Caught an error", error)
+      });
+
+      //  Reset the fields back to original it was.
+       document.getElementById('book-form').reset();
  
     })
 }
 
-function saveMessage(name,aadhar,phone){
-    var newMessageRef = messagesRef.push();
-    newMessageRef.set({
-      name: name,
-      aadhar:aadhar,
-      phone:phone,
-    });
-  }

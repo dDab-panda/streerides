@@ -1,11 +1,19 @@
 
 console.log("Welcome to Bookrequest.js");
 var messagesRef = firebase.database().ref('booking-info');
+var docRef="3";
+var userid=null;
+  auth.onAuthStateChanged(user => {
+      if (user) {
+          console.log("User is signed in toh there should not be login and register.");
+          userid=user.uid;
+          
+      }
+  });
+
 
 const bookrequest = document.querySelector('#book-form')
 
-
-const docRef=db.doc("booking-info/people");
 
 if(bookrequest !== null){
     bookrequest.addEventListener('submit',e => {
@@ -30,7 +38,7 @@ if(bookrequest !== null){
     
 
       //  saveMessage(package, dates, location, time, comments);
-      docRef.set({
+      db.collection('people/'+userid+'/bookings').add({
         package: package,
         dates: dates,
         location: location,

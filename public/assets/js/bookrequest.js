@@ -13,7 +13,7 @@ var userid=null;
 
 
 const bookrequest = document.querySelector('#book-form')
-
+var bookingId="null";
 
 if(bookrequest !== null){
     bookrequest.addEventListener('submit',e => {
@@ -38,18 +38,35 @@ if(bookrequest !== null){
     
 
       //  saveMessage(package, dates, location, time, comments);
-      db.collection('people/'+userid+'/bookings').add({
+
+      db.collection("people").doc(userid).collection("bookings").add({
         package: package,
         dates: dates,
         location: location,
         time: time,
         comments: comments,
-      }).then(function(){
-        console.log("Status Saved")
-      }).catch(function(error){
-        console.log("Caught an error", error)
-      });
+    })
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        bookingId=docRef.id;
+        console.log(bookingId)
 
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+
+    db.collection("bookings").doc(bookingId).set({
+      package: package,
+      dates: dates,
+      location: location,
+      time: time,
+      comments: comments,
+  })
+  .catch(function(error) {
+      console.error("Error adding document: ", error);
+  });
+      // console.log(db.collection("people").doc(userid).collection("bookings").doc().id)
       //  Reset the fields back to original it was.
        document.getElementById('book-form').reset();
  

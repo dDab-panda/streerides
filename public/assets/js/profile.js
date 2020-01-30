@@ -22,14 +22,24 @@ auth.onAuthStateChanged(user => {
         Address=doc.data().Address;
         PhoneNumber=doc.data().PhoneNumber;
         EmailId=doc.data().EmailId;
-        DateOfBirth=doc.data().DateOfBirth;
-        Package=doc.data().package;
-        dates=doc.data().dates;
-        Location=doc.data().location;
-        time=doc.data().time;
-        console.log(UserName, Address, PhoneNumber, EmailId, DateOfBirth, Package, dates, Location, time);
+
+
+        // DateOfBirth=doc.data().DateOfBirth;
+        // Package=doc.data().package;
+        // dates=doc.data().dates;
+        // Location=doc.data().location;
+        // time=doc.data().time;
+        
+        console.log(UserName, Address, PhoneNumber, EmailId);
         document.getElementById("UserId").innerHTML = EmailId; 
     });
+    
+    db.collection('people/' + user.uid + '/bookings').get().then((subCollectionSnapshot) => {
+    subCollectionSnapshot.forEach((subDoc) => {
+        console.log(subDoc.data());
+    });
+    });
+       
     }
 });
 

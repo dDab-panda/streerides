@@ -64,7 +64,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item">   
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
                                 </li>
                             </ul>
@@ -184,42 +184,45 @@
                         </div>
                     </div>
                 </div>
-            </form>           
+            </form>  
+            <div class="col-md-12 search-table-col">
+                <h3 style = "text-align: center;">Your bookings</h3>
+                <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.." /></div><span class="counter pull-right"></span>
+                <div class="table-responsive table-bordered table table-hover table-bordered results">
+                    <table class="table table-bordered table-hover">
+                        <thead class="bill-header cs">
+                            <tr>
+                                <th id="trs-hd" class="col-lg-2">Customer Name</th>
+                                <th id="trs-hd" class="col-lg-1">SL. No.</th>
+                                <th id="trs-hd" class="col-lg-1">Area</th>
+                                
+                                <th id="trs-hd" class="col-lg-2">Company Name</th>
+                                <th id="trs-hd" class="col-lg-2">Member Since</th>
+                                <th id="trs-hd" class="col-lg-2">Action</th>
+                                <th id="trs-hd" class="col-lg-1">Psis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="warning no-result">
+                                <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>India</td>
+                                <td>Souvik Kundu</td>
+                                <td>Bootstrap Stuido</td>
+                                <td>2014</td>
+                                <td>2014</td>
+                                <td><button class="btn btn-success" style="margin-left: 5px;" type="submit"><i class="fa fa-check" style="font-size: 15px;"></i></button><button class="btn btn-danger" style="margin-left: 5px;" type="submit"><i class="fa fa-trash" style="font-size: 15px;"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>         
         </div>
+        
     </section>
-    <br>
-    <section>
-        <div class="col-md-12 search-table-col">
-            <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.." /></div><span class="counter pull-right"></span>
-            <div class="table-responsive table-bordered table table-hover table-bordered results">
-                <table class="table table-bordered table-hover">
-                    <thead class="bill-header cs">
-                        <tr>
-                            <th id="trs-hd" class="col-lg-1">SL. No.</th>
-                            <th id="trs-hd" class="col-lg-2">Area</th>
-                            <th id="trs-hd" class="col-lg-3">Customer Name</th>
-                            <th id="trs-hd" class="col-lg-2">Company Name</th>
-                            <th id="trs-hd" class="col-lg-2">Member Since</th>
-                            <th id="trs-hd" class="col-lg-2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="warning no-result">
-                            <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>India</td>
-                            <td>Souvik Kundu</td>
-                            <td>Bootstrap Stuido</td>
-                            <td>2014</td>
-                            <td><button class="btn btn-success" style="margin-left: 5px;" type="submit"><i class="fa fa-check" style="font-size: 15px;"></i></button><button class="btn btn-danger" style="margin-left: 5px;" type="submit"><i class="fa fa-trash" style="font-size: 15px;"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+   
 </main>
 <footer class="page-footer dark">
     <div class="container">

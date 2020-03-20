@@ -7,7 +7,7 @@ var PhoneNumber=null;
 var EmailId =null;
 const payment_test = firebase.functions().httpsCallable('payment_test');
 const hash_test = firebase.functions().httpsCallable('hash_test');
-
+const bookrequest = document.querySelector('#book-form')
 auth.onAuthStateChanged(user => {
   if (user) {
      // console.log("User is signed in toh there should not be login and register.");

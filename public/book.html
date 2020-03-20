@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Slot Booking</title>
   <meta name="theme-color" content="rgb(23,216,242)">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
   <link rel="icon" type="image/jpeg" sizes="640x640" href="assets/img/streerides-logo.jpeg">
   <link rel="icon" type="image/jpeg" sizes="640x640" href="assets/img/streerides-logo.jpeg">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -26,6 +27,9 @@
  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ 
+ 
 </head>
 
 <body>
@@ -68,7 +72,7 @@
                   <li>Email support</li>	
                   <li>Help center access</li>
                 </ul>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Choose WeekDay Package</button>
+                <button type="button" class="btn btn-lg btn-block btn-primary"  id="rzp-button1">Weekday Pay with RazorPay</button>
               </div>
             </div>
             <div class="card mb-4 lg-4  box-shadow">
@@ -137,6 +141,7 @@
           </div>
           <div class="form-group" id="comments-section"><label>Comments</label><textarea class="form-control" id="comment-value"></textarea></div>
           <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Book</button></div>
+
         </form>
       </div>
     </div>
@@ -187,7 +192,8 @@
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-functions.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
 
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
@@ -206,6 +212,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  firebase.functions().useFunctionsEmulator("http://localhost:5001");
   firebase.analytics();
 
 
@@ -226,6 +233,7 @@
 
 <script src="assets/js/displaylogout.js"></script>
 <script src="assets/js/logout.js"></script>
+<script src="assets/js/payment.js"></script>
 
 <script type="text/javascript">
   

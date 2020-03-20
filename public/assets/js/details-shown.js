@@ -68,11 +68,12 @@ if(details !== null){
             Password: Password,
           }).then(function(){
             console.log("Status Saved")
+            window.location="book.html";
           }).catch(function(error){
             console.log("Caught an error", error)
           });
 
-        window.location="book.html"
+        
         
         
     })

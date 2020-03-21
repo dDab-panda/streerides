@@ -16,16 +16,11 @@ auth.onAuthStateChanged(user => {
     
     
     db.collection("people").doc(userid).get().then(result => {
-      console.log(result);
-      console.log(result.data());
-      console.log(result.data().EmailId);
-      console.log(result.data().PhoneNumber);
-      console.log(result.data().UserName);
       
       name = result.data().UserName;
       email = result.data().EmailId;
       number = result.data().PhoneNumber;
-      
+      console.log(name,email,number);
       bookrequestinfo.addEventListener('submit',e => {
         e.preventDefault();
         
